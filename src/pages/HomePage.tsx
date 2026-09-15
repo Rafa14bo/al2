@@ -88,12 +88,12 @@ export function HomePage() {
           <h1 className="font-display text-3xl sm:text-5xl font-bold text-white leading-tight">
             Desde 2015 levando<br />sabor para Barretos.
           </h1>
-          <p className="text-white/80 mt-3 text-sm sm:text-base">{settings?.description}</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
             <Link to="/cardapio" className="btn-secondary">VER CARDÁPIO</Link>
             <Link to="/cardapio" className="btn-primary">FAZER PEDIDO</Link>
           </div>
-          <div className="flex flex-wrap gap-4 justify-center mt-6">
+          <p className="text-white/70 text-xs sm:text-sm mt-6 mb-1.5 uppercase tracking-wide font-semibold">Nós temos</p>
+          <div className="flex flex-wrap gap-4 justify-center">
             <span className="flex items-center gap-1.5 text-white/90 text-sm"><Truck className="w-4 h-4" /> Delivery</span>
             <span className="flex items-center gap-1.5 text-white/90 text-sm"><Store className="w-4 h-4" /> Retirada</span>
             <span className="flex items-center gap-1.5 text-white/90 text-sm"><UtensilsCrossed className="w-4 h-4" /> Refeição no local</span>
