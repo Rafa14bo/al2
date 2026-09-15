@@ -26,21 +26,39 @@ export function WhatsAppButton() {
 }
 
 export function StoreStatusBadge() {
-  const { isOpen, settings } = useStore();
+  const { isOpen, settings, businessHours } = useStore();
 
   if (settings?.is_temporarily_closed) {
     return (
-      <span className="badge bg-red-100 text-red-700">
-        <span className="w-2 h-2 rounded-full bg-red-500" />
+      <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-red-100 text-red-700">
+        <span className="w-2.5 h-2.5 rounded-full bg-red-500" />
         Loja fechada temporariamente
       </span>
     );
   }
 
+  const now = new Date();
+  const currentTime = now.toTimeString().slice(0, 5);
+  const today = businessHours.find((h) => h.day_of_week === now.getDay());
+
+  let timeInfo = '';
+  if (isOpen && today?.close_time) {
+    const [h, m] = today.close_time.split(':').map(Number);
+    const closeDate = new Date(now);
+    closeDate.setHours(h, m, 0, 0);
+    const diffMin = Math.max(0, Math.round((closeDate.getTime() - now.getTime()) / 60000));
+    const hh = Math.floor(diffMin / 60);
+    const mm = diffMin % 60;
+    const remaining = hh > 0 ? `${hh}h${mm > 0 ? ` ${mm}min` : ''}` : `${mm}min`;
+    timeInfo = ` · fecha às ${today.close_time} (faltam ${remaining})`;
+  } else if (!isOpen && today?.is_open && today?.open_time && currentTime < today.open_time) {
+    timeInfo = ` · abre hoje às ${today.open_time}`;
+  }
+
   return (
-    <span className={`badge ${isOpen ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-      <span className={`w-2 h-2 rounded-full ${isOpen ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
-      {isOpen ? 'Loja aberta' : 'Loja fechada'}
+    <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold ${isOpen ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+      <span className={`w-2.5 h-2.5 rounded-full ${isOpen ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
+      {isOpen ? 'Loja aberta' : 'Loja fechada'}{timeInfo}
     </span>
   );
 }
