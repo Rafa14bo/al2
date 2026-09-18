@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+      // Completa a técnica do 404.html: recebe a rota codificada e restaura
+      // a URL real (ex: /alisson-lanches/cardapio) antes do React montar.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          }).join('?');
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      }(window.location));
+    </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#F40A0B" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Alisson Lanches" />
+    <title>Alisson Lanches — Barretos</title>
+    <meta name="description" content="Peça seus lanches favoritos do Alisson Lanches em Barretos. Delivery, retirada e refeição no local. Desde 2015 levando sabor para Barretos." />
+    <meta property="og:title" content="Alisson Lanches — Barretos" />
+    <meta property="og:description" content="Peça seus lanches favoritos do Alisson Lanches em Barretos. Desde 2015 levando sabor para Barretos." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content="https://images.pexels.com/photos/2469096/pexels-photo-2469096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alisson Lanches — Barretos" />
+    <meta name="twitter:description" content="Peça seus lanches favoritos do Alisson Lanches em Barretos." />
+    <meta name="twitter:image" content="https://images.pexels.com/photos/2469096/pexels-photo-2469096.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+    <script type="module" crossorigin src="/assets/index-BrQDycQ2.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BVaQKt08.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
