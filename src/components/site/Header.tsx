@@ -4,7 +4,6 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo-toca-do-burguer.png.asset.json";
 
 const NAV = [
   { to: "/", label: "Início" },
@@ -13,13 +12,14 @@ const NAV = [
   { to: "/contato", label: "Contato" },
 ] as const;
 
-export const LOGO_URL = logo.url;
+// Arquivo em /public — troque por um PNG maior (ex.: 640x640) mantendo este nome.
+export const LOGO_URL = "/logo-toca-do-burguer.png";
 
 export function Logo({ size = "md" }: { size?: "md" | "lg" }) {
   return (
     <Link to="/" className="group flex items-center gap-3" aria-label="Toca do Burguer — início">
       <img
-        src={logo.url}
+        src={LOGO_URL}
         alt="Logo Toca do Burguer"
         width={640}
         height={640}
