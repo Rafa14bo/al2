@@ -1,0 +1,284 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Toca do Burguer design system — black, golden yellow (from the logo), white.
+ * All colors in oklch. Register new colors in @theme inline.
+ */
+
+@theme inline {
+  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-overlay: var(--overlay);
+
+  /* Burger builder ingredients */
+  --color-bun: var(--bun);
+  --color-bun-dark: var(--bun-dark);
+  --color-sesame: var(--sesame);
+  --color-patty: var(--patty);
+  --color-cheese: var(--cheese);
+  --color-lettuce: var(--lettuce);
+  --color-tomato: var(--tomato);
+  --color-bacon: var(--bacon);
+  --color-onion: var(--onion);
+  --color-pickle: var(--pickle);
+  --color-egg-white: var(--egg-white);
+  --color-egg-yolk: var(--egg-yolk);
+  --color-catupiry: var(--catupiry);
+  --color-ham: var(--ham);
+  --color-mozzarella: var(--mozzarella);
+  --color-corn: var(--corn);
+  --color-straw: var(--straw);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 30s linear infinite;
+  --animate-ember: ember 5s ease-in infinite;
+  --animate-glow: glow 4s ease-in-out infinite;
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.14 0.005 70);
+  --foreground: oklch(0.95 0.025 85);
+  --card: oklch(0.19 0.008 70);
+  --card-foreground: oklch(0.95 0.025 85);
+  --popover: oklch(0.19 0.008 70);
+  --popover-foreground: oklch(0.95 0.025 85);
+  --primary: oklch(0.8 0.16 75);
+  --primary-glow: oklch(0.88 0.16 95);
+  --primary-foreground: oklch(0.14 0.005 70);
+  --secondary: oklch(0.25 0.016 50);
+  --secondary-foreground: oklch(0.95 0.025 85);
+  --muted: oklch(0.23 0.014 50);
+  --muted-foreground: oklch(0.72 0.03 70);
+  --accent: oklch(0.97 0.01 90);
+  --accent-foreground: oklch(0.16 0.012 50);
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.97 0.01 85);
+  --success: oklch(0.75 0.17 150);
+  --border: oklch(0.3 0.018 50);
+  --input: oklch(0.32 0.018 50);
+  --ring: oklch(0.8 0.16 75);
+  --overlay: oklch(0.08 0.005 70 / 78%);
+
+  --bun: oklch(0.7 0.13 62);
+  --bun-dark: oklch(0.58 0.13 50);
+  --sesame: oklch(0.93 0.04 90);
+  --patty: oklch(0.33 0.05 35);
+  --cheese: oklch(0.84 0.17 85);
+  --lettuce: oklch(0.7 0.18 135);
+  --tomato: oklch(0.6 0.21 28);
+  --bacon: oklch(0.5 0.15 25);
+  --onion: oklch(0.72 0.1 60);
+  --pickle: oklch(0.62 0.13 120);
+  --egg-white: oklch(0.96 0.01 90);
+  --egg-yolk: oklch(0.8 0.17 75);
+  --catupiry: oklch(0.93 0.03 90);
+  --ham: oklch(0.75 0.09 15);
+  --mozzarella: oklch(0.93 0.06 95);
+  --corn: oklch(0.86 0.17 92);
+  --straw: oklch(0.78 0.13 80);
+
+  --gradient-flame: linear-gradient(135deg, var(--primary), var(--primary-glow));
+  --gradient-glow: radial-gradient(
+    circle at center,
+    color-mix(in oklab, var(--primary) 45%, transparent) 0%,
+    transparent 65%
+  );
+  --gradient-fade-bottom: linear-gradient(to bottom, transparent, var(--background));
+  --shadow-glow: 0 20px 60px -15px color-mix(in oklab, var(--primary) 60%, transparent);
+  --shadow-card: 0 25px 50px -20px oklch(0 0 0 / 60%);
+
+  --chart-1: oklch(0.8 0.16 75);
+  --chart-2: oklch(0.85 0.16 88);
+  --chart-3: oklch(0.7 0.18 135);
+  --chart-4: oklch(0.6 0.21 28);
+  --chart-5: oklch(0.72 0.1 60);
+  --sidebar: oklch(0.2 0.014 50);
+  --sidebar-foreground: oklch(0.95 0.025 85);
+  --sidebar-primary: oklch(0.8 0.16 75);
+  --sidebar-primary-foreground: oklch(0.16 0.012 50);
+  --sidebar-accent: oklch(0.25 0.016 50);
+  --sidebar-accent-foreground: oklch(0.95 0.025 85);
+  --sidebar-border: oklch(0.3 0.018 50);
+  --sidebar-ring: oklch(0.8 0.16 75);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+    line-height: 0.92;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+@utility text-gradient-flame {
+  background-image: var(--gradient-flame);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-stroke {
+  -webkit-text-stroke: 1.5px var(--foreground);
+  color: transparent;
+}
+
+@utility bg-gradient-flame {
+  background-image: var(--gradient-flame);
+}
+
+@utility bg-gradient-glow {
+  background-image: var(--gradient-glow);
+}
+
+@utility bg-fade-bottom {
+  background-image: var(--gradient-fade-bottom);
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-2deg);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(2deg);
+  }
+}
+
+@keyframes ember {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift, 20px), -420px, 0) scale(0.3);
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
